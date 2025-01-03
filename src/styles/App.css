@@ -1,36 +1,62 @@
 body {
     font-family: 'Open Sans Condensed', sans-serif;
     line-height: 1.5;
+    background-color: #dde;
 }
 
 header {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     text-align: center;
     background-color: #dde;
-    padding: 20px;
+    padding: 10px;
 }
 
 nav {
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
-    background-color: #b5d7a8;
+    background-color: #e6d8c3;
     padding: 10px;
 }
 
+.content {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 20px;
+    grid-row: 3;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #b5d7a8;
     padding: 20px;
     margin-bottom: 5px;
 }
 
+.sidebar {
+    background-color: #b5d7a8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: sticky;
+    top: 10px;
+    margin-bottom: 5px;
+}
+
+/* damit die Sidebar unter Main platziert wird wenn der Bildschirm kleiner wird */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: relative;
+        top: 0;
+    }
+}
+
 footer {
 
     text-align: center;
-    background-color: #dde;
+    background-color: #b5d7a8;
     padding: 10px;
 }
 
@@ -45,18 +71,18 @@ footer {
 }
 
 .comments-section {
-    border: 2px solid #ddd; /* Border for the entire section */
-    background-color: #e6f7ff; /* Light blue background */
+    border: 2px solid #ddd;
+    background-color: #e6f7ff;
     padding: 20px;
-    max-width: 600px; /* Optional: Adjust to fit the layout */
-    margin: 20px auto; /* Center the section on the page */
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 .input-container {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between input fields */
-    margin-bottom: 20px; /* Space between inputs and comments */
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .input-container input,
@@ -86,8 +112,8 @@ footer {
 }
 
 .comment-box {
-    border: 1px solid #ccc; /* Border for individual comments */
-    background-color: #ffffff; /* White background for comments */
+    border: 1px solid #ccc;
+    background-color: #ffffff;
     padding: 10px;
 }
 
