@@ -1,0 +1,112 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: #dde;
+    padding: 20px;
+}
+
+nav {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #b5d7a8;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b5d7a8;
+    padding: 20px;
+    margin-bottom: 5px;
+}
+
+footer {
+
+    text-align: center;
+    background-color: #dde;
+    padding: 10px;
+}
+
+.comments button {
+    margin-bottom: 10px;
+}
+
+.bear-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.comments-section {
+    border: 2px solid #ddd; /* Border for the entire section */
+    background-color: #e6f7ff; /* Light blue background */
+    padding: 20px;
+    max-width: 600px; /* Optional: Adjust to fit the layout */
+    margin: 20px auto; /* Center the section on the page */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+    margin-bottom: 20px; /* Space between inputs and comments */
+}
+
+.input-container input,
+.input-container textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.input-container button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-container button:hover {
+    background-color: #555;
+}
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-box {
+    border: 1px solid #ccc; /* Border for individual comments */
+    background-color: #ffffff; /* White background for comments */
+    padding: 10px;
+}
+
+.comment-line {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.comment-toggle-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.comment-toggle-button:hover {
+    background-color: #555;
+}
