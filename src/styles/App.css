@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
     line-height: 1.5;
     background-color: #dde;
+
 }
 
 header {
@@ -9,36 +10,45 @@ header {
     text-align: center;
     background-color: #dde;
     padding: 10px;
+
 }
 
+
 nav {
-    margin-bottom: 5px;
+    width: 86%;
+    margin: 0 auto 5px auto; /* Zentriert das nav-Element */
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
     background-color: #e6d8c3;
-    padding: 10px;
+    padding: 1% 0;
+    height: auto;
 }
+
+.navbar-list {
+    list-style-type: none;
+}
+
 
 .content {
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 20px;
-    grid-row: 3;
+    grid-template-columns: 7% 65% 1% 20% 10%;
+    gap: 0;
 }
 
 main {
+    grid-column: 2;
+    position: relative;
     background-color: #b5d7a8;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 5px;
 }
 
 .sidebar {
+    grid-column: 4;
+    position: relative;
     background-color: #b5d7a8;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    position: sticky;
-    top: 10px;
     margin-bottom: 5px;
 }
 
@@ -135,4 +145,78 @@ footer {
 
 .comment-toggle-button:hover {
     background-color: #555;
+}
+
+
+
+.navbar {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar-list {
+
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar-list li a {
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: max(15px);
+    transition: color 0.3s ease;
+}
+
+
+.navbar-list li a:hover {
+    color: #007bff;
+}
+
+
+.audio-player {
+    margin: 20px auto;
+    text-align: center;
+}
+
+audio {
+    width: 100%;
+    max-width: 500px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.centered-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.bear-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.bear-card {
+    padding: 15px;
+    width: 80%;
+    text-align: center;
 }
