@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules # Ignoriere node_modules auf dem Host
+      - ./media:/usr/src/app/media
+    environment:
+      NODE_ENV: development
+
+  frontend:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules # Ignoriere node_modules auf dem Host
+    environment:
+      VITE_API_URL: http://localhost:3000
