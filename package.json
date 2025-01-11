@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "vite",
+    "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
@@ -11,6 +12,8 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/preset-react": "^7.26.3",
     "vite": "^4.0.0"
   }
 }
