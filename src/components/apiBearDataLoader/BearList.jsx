@@ -1,70 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import BearCard from './BearCard';
-import { fetchImageUrl, getBearData } from './BearService';
 
 const BearList = () => {
-    const [bears, setBears] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [bears, setBears] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchBears = async () => {
-            try {
-                const wikitext = await getBearData();
-                if (!wikitext) throw new Error('No data returned from API');
+  useEffect(() => {
+    const fetchBears = async () => {
+      try {
+        // Backend-API-Aufruf
+        const res = await fetch('http://localhost:3000/api/bears');
+        if (!res.ok) throw new Error('Failed to fetch bears from backend');
 
-                const speciesTables = wikitext.split('{{Species table/end}}');
-                const fetchedBears = [];
+        const data = await res.json();
+        setBears(data); // Daten in den State setzen
+      } catch (err) {
+        console.error('Error fetching bears:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false); // Ladeanzeige deaktivieren
+      }
+    };
 
-                for (const table of speciesTables) {
-                    const rows = table.split('{{Species table/row');
-                    for (const row of rows) {
-                        const nameMatch = row.match(/\|name=\[\[(.*?)\]\]/);
-                        const binomialMatch = row.match(/\|binomial=(.*?)\n/);
-                        const imageMatch = row.match(/\|image=(.*?)\n/);
-                        const rangeMatch = row.match(/\|range=(.*?)\n/);
+    fetchBears();
+  }, []);
 
-                        if (nameMatch && binomialMatch && imageMatch && rangeMatch) {
-                            const fileName = imageMatch[1].trim().replace('File:', '');
-                            const imageUrl = await fetchImageUrl(fileName);
+  if (loading) {
+    return <p>Loading bears...</p>;
+  }
 
-                            fetchedBears.push({
-                                name: nameMatch[1],
-                                binomial: binomialMatch[1],
-                                image: imageUrl,
-                                range: rangeMatch[1].trim(),
-                            });
-                        }
-                    }
-                }
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
-                setBears(fetchedBears);
-            } catch (err) {
-                console.error('Error fetching bears:', err);
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchBears();
-    }, []);
-
-    if (loading) {
-        return <p>Loading bears...</p>;
-    }
-
-    if (error) {
-        return <p>Error: {error}</p>;
-    }
-
-    return (
-        <div className="bear-list">
-            {bears.map((bear, index) => (
-                <BearCard key={index} {...bear} />
-            ))}
-        </div>
-    );
+  return (
+    <div className="bear-list">
+      {bears.map((bear, index) => (
+        <BearCard key={index} {...bear} />
+      ))}
+    </div>
+  );
 };
 
 export default BearList;
