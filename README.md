@@ -1,6 +1,6 @@
 # WebEngineering_ExtendedCodingPlaygrounds
 
-This project includes a React frontend application and an Express.js backend, both running in Docker containers. The goal is to fetch dynamic data from the Wikipedia API and display local images and audio files correctly.
+This project includes a React frontend application and an Express.js backend, both running in Docker containers.
 The backend is locatd in th folder bckend, the fronend is situated in the root folder of the project. 
 ---
 
@@ -11,7 +11,7 @@ The backend is locatd in th folder bckend, the fronend is situated in the root f
 
 1. **Installed Software:**
     - [Docker](https://www.docker.com/get-started)
-    - Docker Compose (usually included with Docker)
+    - Docker Compose 
 
 2. **Ports:**
     - **Frontend:** `http://localhost` (Port 80)
@@ -21,7 +21,7 @@ The backend is locatd in th folder bckend, the fronend is situated in the root f
 
 ### How to Build and Start the Project
 
-Follow these steps to build and start the project in both **development** and **production** modes.
+Follow these steps to build and start.
 
 ### **1. Clone the Repository**
 First, clone the repository to your local machine:
