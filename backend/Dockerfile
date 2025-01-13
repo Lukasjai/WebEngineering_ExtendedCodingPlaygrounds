@@ -1,3 +1,4 @@
+# Base stage
 # Backend Dockerfile
 
 # STAGE 1: Development
@@ -33,3 +34,4 @@ EXPOSE 3000
 
 # Default command in production
 CMD ["node", "app.js"]
+
