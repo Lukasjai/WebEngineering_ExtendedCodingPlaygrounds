@@ -14,12 +14,12 @@ const BearList = () => {
         if (!res.ok) throw new Error('Failed to fetch bears from backend');
 
         const data = await res.json();
-        setBears(data); // Daten in den State setzen
+        setBears(data);
       } catch (err) {
         console.error('Error fetching bears:', err);
         setError(err.message);
       } finally {
-        setLoading(false); // Ladeanzeige deaktivieren
+        setLoading(false);
       }
     };
 

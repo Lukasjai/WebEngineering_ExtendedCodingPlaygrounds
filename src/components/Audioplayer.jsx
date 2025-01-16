@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class AudioPlayer extends Component {
   constructor(props) {
     super(props);
-    this.audioRef = React.createRef(); // Verwenden von Ref für das Audio-Element
+    this.audioRef = React.createRef();
   }
 
   componentDidMount() {

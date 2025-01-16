@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules # Ignoriere node_modules auf dem Host
+      - /usr/src/app/node_modules
       - ./media:/usr/src/app/media
     environment:
       NODE_ENV: development
@@ -22,6 +22,6 @@ services:
       - "3001:3001"
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules # Ignoriere node_modules auf dem Host
+      - /usr/src/app/node_modules
     environment:
       VITE_API_URL: http://localhost:3000
